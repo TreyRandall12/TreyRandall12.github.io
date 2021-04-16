@@ -26,7 +26,9 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        
+        var tree;
+        var building;
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -43,8 +45,8 @@ var background = function (window) {
             var moon = draw.bitmap('img/moon.png');
             moon.x = 300;
             moon.y = 200;
-            moon.scaleX = 10.0;
-            moon.scaleY = 10.0;
+            moon.scaleX = 1.0;
+            moon.scaleY = 1.0;
             background.addChild(moon);
 
             var circle = draw.circle(10,'white','LightGray',2);
@@ -53,21 +55,21 @@ var background = function (window) {
             background.addChild(circle);
                         
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<5;++i) {
-            var buildingHeight = 300;
-            var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
-            building.x = 200*i;
-            building.y = groundY-buildingHeight;
-            background.addChild(building);
-            buildings.push(building);
-}
+            for(var i = 0 ; i < buildings.length; i++) {
+                var buildingHeight = 300;
+                var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
+                building.x = 200*i;
+                building.y = groundY-buildingHeight;
+                background.addChild(building);
+                buildings.push(building);
+            }
             
             // TODO 4: Part 1 - Add a tree//
             tree = draw.bitmap('img/tree.png');
             tree.x = 0;
             tree.y = 0;
             background.addChild(tree);
-}
+        }
          // end of render function - DO NOT DELETE
         
         
@@ -87,13 +89,13 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax//
-            for(var i=0;i<5;++i) {
-            var buildingHeight = 300;
-            var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
-            building.x = 200*i;
-            building.y = groundY-buildingHeight;
-            background.addChild(building);
-            buildings.push(building);
+            for(var i = 0; i < 5; i++) {
+                var buildingHeight = 300;
+                var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
+                building.x = 200*i;
+                building.y = groundY-buildingHeight;
+                background.addChild(building);
+                buildings.push(building);
             }
         } // end of update function - DO NOT DELETE
         
